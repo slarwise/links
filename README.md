@@ -1,6 +1,6 @@
-# Bookmarks
+# Links
 
-Search your url bookmarks (links).
+Search your links (webpages).
 
 ## Quick start
 
@@ -27,10 +27,10 @@ Create a links.json file that looks something like this:
 
 ```sh
 # Print all links
-./bookmarks
+./links
 
 # Print all links where name, url or any tag contains `hello`
-./bookmarks hello
+./links hello
 ```
 
 For interactive search, do
@@ -42,7 +42,7 @@ For interactive search, do
 For this you need to have [fzf](https://github.com/junegunn/fzf) installed. To open the selected links in a browser, pipe the results to your browser command. E.g. for mac:
 
 ```sh
-./bookmarks hello | xargs open
+./links hello | xargs open
 ./interactive | xargs open
 ```
 
