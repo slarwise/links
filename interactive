@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./bookmarks | fzf --disabled --bind "start:reload:./bookmarks {q}" --bind "change:reload:sleep 0.1; ./bookmarks {q} || true"
