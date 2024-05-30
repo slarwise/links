@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"os"
 	"slices"
@@ -15,6 +16,9 @@ type Link struct {
 }
 
 func main() {
+	flag.Usage = printUsage
+	flag.Parse()
+
 	bytes, err := os.ReadFile("links.json")
 	if err != nil {
 		logError("Failed to read ./links.json: %s", err.Error())
@@ -22,30 +26,38 @@ func main() {
 	}
 	var links []Link
 	if err := json.Unmarshal(bytes, &links); err != nil {
-		logError("Failed to parse ./links.json: %s\n", err.Error())
+		logError("Failed to parse ./links.json: %s", err.Error())
 		os.Exit(1)
 	}
 
-	var results []Link
 	if len(os.Args) == 2 {
 		query := os.Args[1]
-		for _, link := range links {
-			if strings.Contains(link.Name, query) {
-				results = append(results, link)
-			} else if strings.Contains(link.Url, query) {
-				results = append(results, link)
-			} else if slices.ContainsFunc(link.Tags, func(tag string) bool {
-				return strings.Contains(tag, query)
-			}) {
-				results = append(results, link)
-			}
+		links = slices.DeleteFunc(links, func(link Link) bool {
+			return !linkMatchesQuery(link, query)
+		})
+	}
+	for _, link := range links {
+		fmt.Println(link.Url)
+	}
+}
+
+func printUsage() {
+	fmt.Printf(`Usage: %s [QUERY]
+    QUERY: a string to search links with%s`,
+		os.Args[0],
+		"\n",
+	)
+}
+
+func linkMatchesQuery(link Link, query string) bool {
+	words := []string{link.Name, link.Url}
+	words = append(words, link.Tags...)
+	for _, word := range words {
+		if strings.Contains(word, query) {
+			return true
 		}
-	} else {
-		results = links
 	}
-	for _, result := range results {
-		fmt.Println(result.Url)
-	}
+	return false
 }
 
 func logError(format string, args ...any) {
@@ -54,12 +66,4 @@ func logError(format string, args ...any) {
 	}
 	format = "ERROR: " + format
 	fmt.Fprintf(os.Stderr, format, args...)
-}
-
-func printUsage() {
-	fmt.Printf(`Usage: %s QUERY
-    QUERY: a string to search urls with%s`,
-		os.Args[0],
-		"\n",
-	)
 }
