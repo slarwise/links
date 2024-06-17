@@ -1,49 +1,21 @@
 # Links
 
-Search your links (webpages).
+Search through your links and open them.
 
 ## Quick start
 
+Create `~/.config/links.txt` file that looks something like this:
+
+```
+duckduckgo.com search
+https://github.com/TechForPalestine/boycott-israeli-tech-companies-dataset
+```
+
+Each line starts with the url, and any words after that are labels to help searching. Then run it with
+
 ```sh
 go build .
-```
-
-Create a links.json file that looks something like this:
-
-```json
-[
-  {
-    "name": "example",
-    "url": "https://example.com",
-    "tags": ["memes", "hello", "cool"]
-  },
-  {
-    "name": "email",
-    "url": "https://hotmail.com",
-    "tags": ["email", "business"]
-  }
-]
-```
-
-```sh
-# Print all links
 ./links
-
-# Print all links where name, url or any tag contains `hello`
-./links hello
 ```
 
-For interactive search, do
-
-```sh
-./interactive
-```
-
-For this you need to have [fzf](https://github.com/junegunn/fzf) installed. To open the selected links in a browser, pipe the results to your browser command. E.g. for mac:
-
-```sh
-./links hello | xargs open
-./interactive | xargs open
-```
-
-TODO: `fzf` isn't used for any fuzzy searching here, is there something more suitable?
+Write to filter the links and press enter to open the link. Read `main.go` for the keyboard shortcuts.
