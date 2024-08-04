@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "embed"
 	"flag"
 	"fmt"
 	"os"
@@ -10,15 +11,11 @@ import (
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
+//go:embed JetBrainsMonoNerdFont-Medium.ttf
+var fontData []byte
+
 func main() {
 	flag.Parse()
-
-	programPath, err := os.Executable()
-	if err != nil {
-		logError("Could not find the path of the program: %s", err.Error())
-		os.Exit(1)
-	}
-	fontPath := filepath.Join(filepath.Dir(programPath), "JetBrainsMonoNerdFont-Medium.ttf")
 
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
@@ -52,7 +49,7 @@ func main() {
 	windowPos := rl.GetWindowPosition()
 	rl.SetWindowPosition(int(windowPos.X), 220)
 	fontSize := 20
-	font := rl.LoadFontEx(fontPath, 2*int32(fontSize), nil, 0)
+	font := rl.LoadFontFromMemory(".ttf", fontData, 2*int32(fontSize), nil)
 	defer rl.CloseWindow()
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
