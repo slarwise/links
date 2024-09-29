@@ -56,6 +56,7 @@ func main() {
 		rl.ClearBackground(rl.RayWhite)
 
 		rl.DrawRectangle(int32(rectX), 20, rectWidth, 20, blueBg)
+		// TODO: Handle holding keys down
 		key := rl.GetKeyPressed()
 		if key == rl.KeyBackspace {
 			if len(query) > 0 {
