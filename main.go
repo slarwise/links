@@ -38,10 +38,10 @@ func main() {
 	pinkBg := rl.NewColor(245, 169, 184, 100)
 	black := rl.NewColor(0, 0, 0, 255)
 	resultsY := 50
-	width := 800
+	width := 1000
 	height := 300
-	rectX := 0.1 * float32(width)
-	rectWidth := int32(0.8 * float32(width))
+	rectX := 0.075 * float32(width)
+	rectWidth := int32(0.85 * float32(width))
 
 	rl.SetTargetFPS(60)
 	rl.SetConfigFlags(rl.FlagWindowUndecorated)
