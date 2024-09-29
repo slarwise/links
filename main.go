@@ -125,7 +125,7 @@ func main() {
 			if i == 0 {
 				rl.DrawRectangle(int32(rectX), int32(resultsY+i*20), rectWidth, 20, pinkBg)
 			}
-			rl.DrawTextEx(font, l[:min(70, len(l))], rl.NewVector2(rectX, float32(resultsY+i*20)), float32(fontSize), 0, rl.Black)
+			rl.DrawTextEx(font, l[:min(94, len(l))], rl.NewVector2(rectX, float32(resultsY+i*20)), float32(fontSize), 0, rl.Black)
 		}
 
 		queryUpdated = false
