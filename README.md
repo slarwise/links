@@ -14,7 +14,7 @@ https://github.com/TechForPalestine/boycott-israeli-tech-companies-dataset
 Each line starts with the url, and any words after that are labels to help searching. Then run it with
 
 ```sh
-go build .
+odin build .
 ./links
 ```
 
