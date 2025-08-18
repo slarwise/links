@@ -18,4 +18,12 @@ odin build .
 ./links
 ```
 
-Write to filter the links and press enter to open the link. Read `main.go` for the keyboard shortcuts.
+Write to filter the links and press enter to open the link. Keybindings:
+
+| Key            | Action       |
+| -------------- | ------------ |
+| Ctrl-J         | Go down      |
+| Ctrl-K         | Go up        |
+| Enter, Ctrl-M  | Open link    |
+| Ctrl-U         | Clear filter |
+| Escape, Ctrl-[ | Exit         |
