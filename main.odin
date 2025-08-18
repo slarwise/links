@@ -30,7 +30,7 @@ run :: proc() -> (error: ^string) {
 
 	keybinds := map[fzf.Key]proc(item: string){}
 	keybinds[.ENTER] = open_link
-	fzf.run(links[:], keybinds)
+	fzf.run(links[:], keybinds, width = 1000, height = 300)
 	return nil
 }
 
