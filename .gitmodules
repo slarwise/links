@@ -1,0 +1,3 @@
+[submodule "vendor/fzfraylib"]
+	path = vendor/fzfraylib
+	url = https://git.sr.ht/~slarwise/fzfraylib
