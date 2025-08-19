@@ -28,14 +28,15 @@ run :: proc() -> (error: ^string) {
 		append(&links, line)
 	}
 
-	keybinds := map[fzf.Key]proc(item: string){}
+	keybinds := map[fzf.Key]proc(item: string) -> bool{}
 	keybinds[.ENTER] = open_link
 	fzf.run(links[:], keybinds, width = 1000, height = 300)
 	return nil
 }
 
-open_link :: proc(item: string) {
+open_link :: proc(item: string) -> bool {
 	link := strings.fields(item, context.temp_allocator)[0]
 	fzf.open_url(link)
+	return true
 }
 
