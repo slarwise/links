@@ -82,7 +82,7 @@ init_layout :: proc(width, height: int) {
 
 run :: proc(
 	items: []string,
-	keybinds := map[Key]proc(item: string){},
+	keybinds := map[Key]proc(item: string) -> bool{},
 	width := 800,
 	height := 600,
 ) {
@@ -119,60 +119,110 @@ run :: proc(
 			if ctrl_is_held {
 				switch key {
 				case .CTRL_A:
-					if IsKeyPressed(.A) || IsKeyPressedRepeat(.A) do proc_(selected_item)
+					if IsKeyPressed(.A) || IsKeyPressedRepeat(.A) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_B:
-					if IsKeyPressed(.B) || IsKeyPressedRepeat(.B) do proc_(selected_item)
+					if IsKeyPressed(.B) || IsKeyPressedRepeat(.B) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_C:
-					if IsKeyPressed(.C) || IsKeyPressedRepeat(.C) do proc_(selected_item)
+					if IsKeyPressed(.C) || IsKeyPressedRepeat(.C) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_D:
-					if IsKeyPressed(.D) || IsKeyPressedRepeat(.D) do proc_(selected_item)
+					if IsKeyPressed(.D) || IsKeyPressedRepeat(.D) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_E:
-					if IsKeyPressed(.E) || IsKeyPressedRepeat(.E) do proc_(selected_item)
+					if IsKeyPressed(.E) || IsKeyPressedRepeat(.E) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_F:
-					if IsKeyPressed(.F) || IsKeyPressedRepeat(.F) do proc_(selected_item)
+					if IsKeyPressed(.F) || IsKeyPressedRepeat(.F) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_G:
-					if IsKeyPressed(.G) || IsKeyPressedRepeat(.G) do proc_(selected_item)
+					if IsKeyPressed(.G) || IsKeyPressedRepeat(.G) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_H:
-					if IsKeyPressed(.H) || IsKeyPressedRepeat(.H) do proc_(selected_item)
+					if IsKeyPressed(.H) || IsKeyPressedRepeat(.H) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_I:
-					if IsKeyPressed(.I) || IsKeyPressedRepeat(.I) do proc_(selected_item)
+					if IsKeyPressed(.I) || IsKeyPressedRepeat(.I) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_J, .CTRL_K:
 					panic("CTRL_J and CTRL_K are reserved for navigation") // TODO: Should they be reserved?
 				case .CTRL_L:
-					if IsKeyPressed(.L) || IsKeyPressedRepeat(.L) do proc_(selected_item)
+					if IsKeyPressed(.L) || IsKeyPressedRepeat(.L) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_M:
-					if IsKeyPressed(.M) || IsKeyPressedRepeat(.M) do proc_(selected_item)
+					if IsKeyPressed(.M) || IsKeyPressedRepeat(.M) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_N:
-					if IsKeyPressed(.N) || IsKeyPressedRepeat(.N) do proc_(selected_item)
+					if IsKeyPressed(.N) || IsKeyPressedRepeat(.N) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_O:
-					if IsKeyPressed(.O) || IsKeyPressedRepeat(.O) do proc_(selected_item)
+					if IsKeyPressed(.O) || IsKeyPressedRepeat(.O) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_P:
-					if IsKeyPressed(.P) || IsKeyPressedRepeat(.P) do proc_(selected_item)
+					if IsKeyPressed(.P) || IsKeyPressedRepeat(.P) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_Q:
-					if IsKeyPressed(.Q) || IsKeyPressedRepeat(.Q) do proc_(selected_item)
+					if IsKeyPressed(.Q) || IsKeyPressedRepeat(.Q) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_R:
-					if IsKeyPressed(.R) || IsKeyPressedRepeat(.R) do proc_(selected_item)
+					if IsKeyPressed(.R) || IsKeyPressedRepeat(.R) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_S:
-					if IsKeyPressed(.S) || IsKeyPressedRepeat(.S) do proc_(selected_item)
+					if IsKeyPressed(.S) || IsKeyPressedRepeat(.S) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_T:
-					if IsKeyPressed(.T) || IsKeyPressedRepeat(.T) do proc_(selected_item)
+					if IsKeyPressed(.T) || IsKeyPressedRepeat(.T) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_U:
-					if IsKeyPressed(.U) || IsKeyPressedRepeat(.U) do proc_(selected_item)
+					if IsKeyPressed(.U) || IsKeyPressedRepeat(.U) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_V:
-					if IsKeyPressed(.V) || IsKeyPressedRepeat(.V) do proc_(selected_item)
+					if IsKeyPressed(.V) || IsKeyPressedRepeat(.V) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_W:
-					if IsKeyPressed(.W) || IsKeyPressedRepeat(.W) do proc_(selected_item)
+					if IsKeyPressed(.W) || IsKeyPressedRepeat(.W) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_X:
-					if IsKeyPressed(.X) || IsKeyPressedRepeat(.X) do proc_(selected_item)
+					if IsKeyPressed(.X) || IsKeyPressedRepeat(.X) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_Y:
-					if IsKeyPressed(.Y) || IsKeyPressedRepeat(.Y) do proc_(selected_item)
+					if IsKeyPressed(.Y) || IsKeyPressedRepeat(.Y) {
+						if proc_(selected_item) do return
+					}
 				case .CTRL_Z:
-					if IsKeyPressed(.Z) || IsKeyPressedRepeat(.Z) do proc_(selected_item)
+					if IsKeyPressed(.Z) || IsKeyPressedRepeat(.Z) {
+						if proc_(selected_item) do return
+					}
 				}
 			} else {
 				switch key {
 				case .ENTER:
-					if IsKeyPressed(.ENTER) || IsKeyPressedRepeat(.ENTER) do proc_(selected_item)
+					if IsKeyPressed(.ENTER) || IsKeyPressedRepeat(.ENTER) {
+						if proc_(selected_item) do return
+					}
 
 				}
 			}
